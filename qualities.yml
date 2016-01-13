@@ -1,0 +1,9 @@
+# remove quality, target, timeframe and replace with include: qualities.yml
+qualities:
+  - 720p h264 aac
+  - 720p h264 ac3
+  - 480p h264 aac
+  - 480p h264 ac3
+  - 1080p h264 aac
+  - 1080p h264 ac3
+timeframe: 20 hours

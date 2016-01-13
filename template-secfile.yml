@@ -1,0 +1,24 @@
+trakt:
+  acct1: sisfs
+  acct2: someOtherGuy
+  acct3: anotherGuy
+  acct4: yetAnother
+deluge:
+  username: *******
+  password: ******
+pushbullet:
+  apikey: *******
+torrentleech:
+  username: ****
+  password: *****
+  rss_key: *******
+dirs:
+  rootmedia: '/mnt/media/'
+  down: '/mnt/media/check/'
+  dmc: '/mnt/media/NewAdditions/'
+  movies: '/mnt/media/movies/'
+  shows: '/mnt/media/shows/'
+  prems: '/mnt/media/premieres/'
+  stagmovies: '/mnt/media/check/staging/movies/'
+  stagshows: '/mnt/media/check/staging/shows/'
+  stagprems: '/mnt/media/check/staging/premieres/'

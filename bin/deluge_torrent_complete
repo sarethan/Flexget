@@ -1,4 +1,5 @@
 #!/usr/local/bin/python2.7 -O
+
 import sys
 import os
 import logging, logging.handlers
@@ -6,10 +7,12 @@ import subprocess
 
 LOG_FILE='/home/deluge/.flexget/torrent_complete.log'
 DOWNLOAD_PATH='/mnt/media/check'
-STAGING_PATH='/mnt/media/staging'
-XBMC_HOST='Carina.singularity.net'
+STAGING_PATH='/mnt/media/check/staging'
+# i'm not running XBMC
+# XBMC_HOST='Carina.singularity.net'
 PLEX_HOST='192.168.1.18'
-X_PLEX_TOKEN='xxxxxxxxxxxxxxxxxxxx'
+# no longer needed with new trakt.tv token system
+# X_PLEX_TOKEN='xxxxxxxxxxxxxxxxxxxx'
 # If you're using a local checkout of Flexget, use flexget_vanilla.
 # Otherwise use the one in your system
 FLEXGET_COMMAND='/usr/local/bin/flexget --logfile '\
@@ -22,8 +25,8 @@ FLEXGET_TASK_PREFIX='Sort_Unpacked_'
 # value: suffix of the task in the sorting config to run (FLEXGET_TASK_PREFIX+value)
 FLEXGET_PATH_TASK={
     '/movies/': 'Movies',
-    '/tv_shows/': 'TV_Shows',
-    '/tv_premieres/': 'TV_Premieres',
+    '/shows/': 'TV_Shows',
+    '/premieres/': 'TV_Premieres',
     }
 
 log = logging.getLogger("torrent_complete")
@@ -50,19 +53,17 @@ if len(sys.argv) != 4:
     log.info('see http://dev.deluge-torrent.org/wiki/Plugins/Execute for more information')
     sys.exit(-1)
 
+# need to determine what if statement to put her so that the right value is assigned to pmsupdate_path and then passed to pms.script2
 torrent_id=sys.argv[1]
 torrent_name=sys.argv[2]
 torrent_path=(sys.argv[3] if (sys.argv[3][-1] == '/') else sys.argv[3]+'/')
 pmsupdate_path=(sys.argv[3].strip("/") if (sys.argv[3][-1] == '/') else sys.argv[3])
 log.debug("%s called with torrent_id='%s', torrent_name='%s', torrent_path='%s'." % (sys.argv[0],
     torrent_id, torrent_name, torrent_path))
-log.warning("%s called with torrent_id='%s', torrent_name='%s', torrent_path='%s'." % (sys.argv[0],
-    torrent_id, torrent_name, torrent_path))
 
 def chain():
     log.debug("Updating Plex Library")
-    # cmd = '/usr/bin/curl http://'+PLEX_HOST+':32400/library/sections/2/refresh?X-Plex-Token='+X_PLEX_TOKEN
-    cmd = 'ssh -i ~/.ssh/id_rsa plex@192.168.1.18 "/usr/local/bin/bash /usr/local/bin/pms.script2 '+pmsupdate_path+'"'
+    cmd = 'ssh -i ~/.ssh/id_rsa plex@'+PLEX_HOST+' "/usr/local/bin/bash /usr/local/bin/pms.script2 '+pmsupdate_path+'"'
     ret = subprocess.call(cmd, shell=True)
     if ret != 0:
         log.warning('Update Plex command returned non-zero value %d.' % ret)

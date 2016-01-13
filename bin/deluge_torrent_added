@@ -2,4 +2,4 @@
 torrentid=$1
 torrentname=$2
 torrentpath=$3
-echo "Torrent Details: " $torrentname $torrentpath $torrentid  >> /home/deluge/.flexget/bin/execute_script.txt
+echo "Torrent Added: " $torrentname $torrentpath $torrentid  >> /home/deluge/.flexget/bin/execute_script.txt

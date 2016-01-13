@@ -16,3 +16,6 @@
 [submodule "possSubs/Plex-Trakt-Scrobbler"]
 	path = possSubs/Plex-Trakt-Scrobbler
 	url = https://github.com/trakt/Plex-Trakt-Scrobbler.git
+[submodule "possSubs/GoogleMusic.bundle"]
+	path = possSubs/GoogleMusic.bundle
+	url = https://github.com/jwdempsey/GoogleMusic.bundle.git

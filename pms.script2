@@ -1,5 +1,6 @@
 #!/usr/local/bin/bash
 directory=$1
+# if []
 section=`echo "$directory" | cut -d/ -f4`
 export LD_LIBRARY_PATH="/usr/local/share/plexmediaserver-plexpass"
 export LANG="en_US.UTF-8"
