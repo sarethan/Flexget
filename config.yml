@@ -189,7 +189,7 @@ templates:
         - '\d{4}.\d{2}.\d{2}': {from: title}
         - \d+x\d+: {from: title}
         - \baac2: {from: title} # No 2 channel audio
-    # Force proper_movies to run after regexp to avoid unnecessary imdb_lookup
+    ## Force proper_movies to run after regexp to avoid unnecessary imdb_lookup
     plugin_priority:
       regexp: 176
       if: 177
