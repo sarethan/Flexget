@@ -179,7 +179,7 @@ templates:
       - rss: { url: '{{ secrets.RssFeeds.Movies.toorentz }}', silent: yes } # Torrentz (Verified Movies)
       - rss: '{{ secrets.RssFeeds.Movies.kat1 }}' # Kickass (Movies)
       - rss: '{{ secrets.RssFeeds.Movies.kat2 }}' # Kickass (Movies)
-      - rss: { url: '{{ secrets.RssFeeds.TVshows.mininova }}', silent: yes }   # MiniNova (TV)
+      - rss: { url: '{{ secrets.RssFeeds.Movies.mininova }}', silent: yes }   # MiniNova (TV)
     # Some feeds might include TV Shows, ignore them
     if:
       - "has_field('category')":
