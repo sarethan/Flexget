@@ -126,9 +126,9 @@ templates:
       - '{{ secrets.dirs.prems }}' 
       - '{{ secrets.dirs.stagshows }}' 
       - '{{ secrets.dirs.stagprems }}' 
-    thexem:
-      source: scene
-      destination: tvdb
+   # thexem:
+  #    source: scene
+  #    destination: tvdb
     # Look up info on TheTVDB.com to fill in extra info
     thetvdb_lookup: yes
     trakt_lookup: yes
@@ -289,9 +289,9 @@ tasks:
       reject:
         - \bsample\b: {from: title}
     disable: builtins
-    thexem:
-      source: tvdb
-      destination: scene
+    #thexem:
+    #  source: tvdb
+    #  destination: scene
     sequence:
       - configure_series:
           settings:
